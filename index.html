@@ -679,12 +679,12 @@
 			});
 			observer.observe(document.body, { childList: true, subtree: true });
 			*/
-			const inputNombreOculto = document.createElement('input');
+			const inputNombreOculto = document.createElement('div');
             inputNombreOculto.type = 'hidden';
             inputNombreOculto.id = 'nombre';
             inputNombreOculto.value = 'Leonardo Cervantes';
 
-            const inputPuestoOculto = document.createElement('input');
+            const inputPuestoOculto = document.createElement('div');
             inputPuestoOculto.type = 'hidden';
             inputPuestoOculto.id = 'puesto';
             inputPuestoOculto.value = 'CSR';
