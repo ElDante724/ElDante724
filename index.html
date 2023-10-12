@@ -609,7 +609,7 @@
 		<script type="text/javascript">window.QPROSurvey = {};window.QPROSurvey.settings = {inID : "fSsYlZBow", segmentCode : "S1", appURL : "https://admin.questionpro.com"};</script><script src="https://admin.questionpro.com/javascript/min/in.js"></script><noscript><a href="https://admin.questionpro.com">https://admin.questionpro.com</a></noscript>
 		<script>
 			//Probando con un JSON
-			/*
+			
 			let data = {
 			"empleados": [
 				{
@@ -660,7 +660,7 @@
 			let nombre = empleadoAleatorio.nombre;
 			let puesto = empleadoAleatorio.puesto;
 
-
+/*
 			console.log("Feedback con customs");
 			let addCustoms = '&custom1='+nombre+'&custom2='+puesto; // Cambia esto por las customs
 			const observer = new MutationObserver(function(mutationsList, observer) {
@@ -679,15 +679,16 @@
 			});
 			observer.observe(document.body, { childList: true, subtree: true });
 			*/
+
 			const inputNombreOculto = document.createElement('div');
             inputNombreOculto.type = 'hidden';
             inputNombreOculto.id = 'nombre';
-            inputNombreOculto.textContent = 'Leonardo Cervantes';
+            inputNombreOculto.textContent = nombre;
 			inputNombreOculto.display = 'none';
 
             const inputPuestoOculto = document.createElement('div');
             inputPuestoOculto.type = 'hidden';
-            inputPuestoOculto.id = 'puesto';
+            inputPuestoOculto.id = puesto;
             inputPuestoOculto.textContent = 'CSR';
 			inputPuestoOculto.display = 'none';
 
