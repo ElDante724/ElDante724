@@ -682,12 +682,14 @@
 			const inputNombreOculto = document.createElement('div');
             inputNombreOculto.type = 'hidden';
             inputNombreOculto.id = 'nombre';
-            inputNombreOculto.value = 'Leonardo Cervantes';
+            inputNombreOculto.textContent = 'Leonardo Cervantes';
+			inputNombreOculto.display = 'none';
 
             const inputPuestoOculto = document.createElement('div');
             inputPuestoOculto.type = 'hidden';
             inputPuestoOculto.id = 'puesto';
-            inputPuestoOculto.value = 'CSR';
+            inputPuestoOculto.textContent = 'CSR';
+			inputPuestoOculto.display = 'none';
 
             // Obtener el footer por su posición en el DOM
             const footer = document.getElementsByTagName('body')[0];
