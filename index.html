@@ -627,7 +627,7 @@
 
 			// Observa cambios en el nodo body del DOM
 			observer.observe(document.body, { childList: true, subtree: true });
-
+			console.log("Aquí");
 			document.addEventListener('DOMContentLoaded', function() {
 				setTimeout(function() {
 					var divToClick = document.querySelector('.sa-handle');
