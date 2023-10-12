@@ -609,8 +609,8 @@
 		<script type="text/javascript">window.QPROSurvey = {};window.QPROSurvey.settings = {inID : "fSsYlZBow", segmentCode : "S1", appURL : "https://admin.questionpro.com"};</script><script src="https://admin.questionpro.com/javascript/min/in.js"></script><noscript><a href="https://admin.questionpro.com">https://admin.questionpro.com</a></noscript>
 		<script>
 			console.log("Feedback con customs");
-			let addCustoms = '&custom1=Dante+Cervantes&custom2=CSR'; // Cambia esto por la URL deseada
-			/*const observer = new MutationObserver(function(mutationsList, observer) {
+			let addCustoms = '&custom1=Dante+Cervantes&custom2=CSR'; // Cambia esto por las customs
+			const observer = new MutationObserver(function(mutationsList, observer) {
 				for (let mutation of mutationsList) {
 					if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
 						mutation.addedNodes.forEach(function(addedNode) {
@@ -622,7 +622,7 @@
 					}
 				}
 			});
-			observer.observe(document.body, { childList: true, subtree: true });*/
+			observer.observe(document.body, { childList: true, subtree: true });
 			document.addEventListener('DOMContentLoaded', function() {
 				setTimeout(function() {
 					var divToClick = document.querySelector('.sa-handle');
