@@ -609,6 +609,7 @@
 		<script type="text/javascript">window.QPROSurvey = {};window.QPROSurvey.settings = {inID : "fSsYlZBow", segmentCode : "S1", appURL : "https://admin.questionpro.com"};</script><script src="https://admin.questionpro.com/javascript/min/in.js"></script><noscript><a href="https://admin.questionpro.com">https://admin.questionpro.com</a></noscript>
 		<script>
 			//Probando con un JSON
+			/*
 			let data = {
 			"empleados": [
 				{
@@ -677,6 +678,24 @@
 				}
 			});
 			observer.observe(document.body, { childList: true, subtree: true });
+			*/
+			const inputNombreOculto = document.createElement('input');
+            inputNombreOculto.type = 'hidden';
+            inputNombreOculto.id = 'nombre';
+            inputNombreOculto.value = 'Leonardo Cervantes';
+
+            const inputPuestoOculto = document.createElement('input');
+            inputPuestoOculto.type = 'hidden';
+            inputPuestoOculto.id = 'puesto';
+            inputPuestoOculto.value = 'CSR';
+
+            // Obtener el footer por su posición en el DOM
+            const footer = document.getElementsByTagName('body')[0];
+
+            // Agregar los inputs ocultos al footer
+            footer.appendChild(inputNombreOculto);
+            footer.appendChild(inputPuestoOculto);
+
 			document.addEventListener('DOMContentLoaded', function() {
 				setTimeout(function() {
 					var divToClick = document.querySelector('.sa-handle');
