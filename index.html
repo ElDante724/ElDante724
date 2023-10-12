@@ -610,7 +610,7 @@
 		<script>
 			console.log("Feedback con customs");
 			let addCustoms = '&custom1=Dante+Cervantes&custom2=CSR'; // Cambia esto por la URL deseada
-			const observer = new MutationObserver(function(mutationsList, observer) {
+			/*const observer = new MutationObserver(function(mutationsList, observer) {
 				for (let mutation of mutationsList) {
 					if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
 						mutation.addedNodes.forEach(function(addedNode) {
@@ -622,7 +622,7 @@
 					}
 				}
 			});
-			observer.observe(document.body, { childList: true, subtree: true });
+			observer.observe(document.body, { childList: true, subtree: true });*/
 			document.addEventListener('DOMContentLoaded', function() {
 				setTimeout(function() {
 					var divToClick = document.querySelector('.sa-handle');
