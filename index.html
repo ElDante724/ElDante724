@@ -608,18 +608,33 @@
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 		<script type="text/javascript">window.QPROSurvey = {};window.QPROSurvey.settings = {inID : "fSsYlZBow", segmentCode : "S1", appURL : "https://admin.questionpro.com"};</script><script src="https://admin.questionpro.com/javascript/min/in.js"></script><noscript><a href="https://admin.questionpro.com">https://admin.questionpro.com</a></noscript>
 		<script>
-			// Espera a que el DOM se cargue completamente
+			// Observa cambios en el DOM
+			const observer = new MutationObserver(function(mutationsList, observer) {
+				for (let mutation of mutationsList) {
+					// Verifica si se ha agregado un nuevo nodo al DOM
+					if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+						// Itera sobre los nodos agregados
+						mutation.addedNodes.forEach(function(addedNode) {
+							// Verifica si el nodo agregado es un iframe y tiene el ID "feedbackFrame"
+							if (addedNode.tagName && addedNode.tagName.toLowerCase() === 'iframe' && addedNode.id === 'feedbackFrame') {
+								// Cambia la propiedad src del iframe
+								addedNode.src = 'https://admin.questionpro.com/a/TakeSurvey?tt=xP2QjA6978EECHrPeIW9eQ%3D%3D&amp;segmentCode=S1&responseCheck=false&isCXIntercept=true&isMobile=true&embedded=true&custom201=https%3A%2F%2Feldante724.github.io%2F&rand=0.6844602001676626&custom1=Dante'; // Cambia esto por la URL deseada
+							}
+						});
+					}
+				}
+			});
+
+			// Observa cambios en el nodo body del DOM
+			observer.observe(document.body, { childList: true, subtree: true });
+
 			document.addEventListener('DOMContentLoaded', function() {
-				// Espera 5 segundos (5000 milisegundos) antes de hacer clic en el elemento
 				setTimeout(function() {
-					// Busca el elemento con la clase "sa-handle"
 					var divToClick = document.querySelector('.sa-handle');
-					
-					// Si se encuentra el elemento, haz clic en él
 					if (divToClick) {
 						divToClick.click();
 					}
-				}, 5000); // 5000 ms = 5 segundos
+				}, 5000); 
 				alert("Hola mundo");
 			});
 		</script>
