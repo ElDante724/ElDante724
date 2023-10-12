@@ -699,36 +699,15 @@
             footer.appendChild(inputNombreOculto);
             footer.appendChild(inputPuestoOculto);
 
-			function observarCambiosEnDOM() {
-			const targetNode = document;
-			const config = { childList: true, subtree: true };
-
-			const callback = function (mutationsList, observer) {
-				for (const mutation of mutationsList) {
-				if (mutation.type === 'childList' && mutation.addedNodes) {
-					for (const node of mutation.addedNodes) {
-					if (node instanceof HTMLElement && node.tagName.toLowerCase() === 'div') {
-						// Verifica si el elemento tiene la clase "sa-handle"
-						if (node.classList.contains('sa-handle')) {
-							var divToClick = document.querySelector('.sa-handle');
-								if (divToClick) {
-									divToClick.click();
-								}
-						}
+			document.addEventListener('DOMContentLoaded', function() {
+				setTimeout(function() {
+					var divToClick = document.querySelector('.sa-handle');
+					if (divToClick) {
+						divToClick.click();
 					}
-					}
-				}
-				}
-			};
-
-			const observer = new MutationObserver(callback);
-			observer.observe(targetNode, config);
-			}
-
-			observarCambiosEnDOM();
-
+				}, 3000); 
+				
+			});
 		</script>
     </body>
 </html>
-
-
