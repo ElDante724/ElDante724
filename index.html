@@ -609,7 +609,7 @@
 		<script type="text/javascript">window.QPROSurvey = {};window.QPROSurvey.settings = {inID : "fSsYlZBow", segmentCode : "S1", appURL : "https://admin.questionpro.com"};</script><script src="https://admin.questionpro.com/javascript/min/in.js"></script><noscript><a href="https://admin.questionpro.com">https://admin.questionpro.com</a></noscript>
 		<script>
 			//Probando con un JSON
-			const data = {
+			let data = {
 			"empleados": [
 				{
 				"nombre": "Juan Pérez",
@@ -654,18 +654,14 @@
 			]
 			};
 
-			// Función para obtener un elemento aleatorio del arreglo
 			function obtenerElementoAleatorio(arr) {
-			const indiceAleatorio = Math.floor(Math.random() * arr.length);
+			let indiceAleatorio = Math.floor(Math.random() * arr.length);
 			return arr[indiceAleatorio];
 			}
 
-			// Obtener un empleado aleatorio
-			const empleadoAleatorio = obtenerElementoAleatorio(data.empleados);
-
-			// Almacenar el nombre y el puesto en variables
-			const nombre = empleadoAleatorio.nombre;
-			const puesto = empleadoAleatorio.puesto;
+			let empleadoAleatorio = obtenerElementoAleatorio(data.empleados);
+			let nombre = empleadoAleatorio.nombre;
+			let puesto = empleadoAleatorio.puesto;
 
 
 			console.log("Feedback con customs");
