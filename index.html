@@ -699,12 +699,23 @@
             footer.appendChild(inputNombreOculto);
             footer.appendChild(inputPuestoOculto);
 
-			document.addEventListener('DOMContentLoaded', function() {
-				
-					var divToClick = document.querySelector('.sa-handle');
-					if (divToClick) {
-						divToClick.click();
+			const observer = new MutationObserver(function(mutationsList, observer) {
+				for (let mutation of mutationsList) {
+					if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+						mutation.addedNodes.forEach(function(addedNode) {
+							if (addedNode.tagName && addedNode.tagName.toLowerCase() === 'div' && addedNode.class === 'sa-handle') {
+								var divToClick = document.querySelector('.sa-handle');
+								if (divToClick) {
+									divToClick.click();
+								}
+							}
+						});
 					}
+				}
+			});
+			observer.observe(document.body, { childList: true, subtree: true });
+
+			document.addEventListener('DOMContentLoaded', function() {
 				console.log("DOM cargado");
 				
 			});
