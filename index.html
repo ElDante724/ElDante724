@@ -611,11 +611,16 @@
 
             var style = document.createElement('style');
 			style.innerHTML = `
-			.survey-light-box, .survey-iframe, .survey-height-ios {
+			.survey-light-box, .survey-height-ios {
 			    width: 100vw !important;
 			    height: 100vh !important;
 			    /* otros estilos */
-			}`;
+			}
+            .survey-iframe{
+                width: 90vw !important;
+			    height: 90vh !important;
+            }
+            `;
 			document.head.appendChild(style);
 		
 		</script>
