@@ -15,6 +15,19 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <style>
+            .sa-wrapper {
+              width: 100vw !important;
+              height: 100vh !important;
+              max-height: 100vh !important;
+            }
+            #feedbackFrame
+            {
+                width: 100vw !important;
+              height: 100vh !important;
+              max-height: 100vh !important;
+            }
+          </style>
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -608,32 +621,6 @@
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 		<script type="text/javascript">window.QPROSurvey = {};window.QPROSurvey.settings = {inID : "fSsYlZBow", segmentCode : "S1", appURL : "https://admin.questionpro.com"};</script><script src="https://admin.questionpro.com/javascript/min/in.js"></script><noscript><a href="https://admin.questionpro.com">https://admin.questionpro.com</a></noscript>
 		<script>
-
-            // Función para agregar estilos CSS dinámicamente
-            function agregarEstilosCSS(css) {
-            var estilo = document.createElement('style');
-            estilo.type = 'text/css';
-            estilo.appendChild(document.createTextNode(css));
-            document.head.appendChild(estilo);
-            }
-
-            // Estilos CSS que quieres agregar
-            var estilosCSS = `
-            .sa-wrapper {
-                width: 100vw !important;
-                height: 100vh !important;
-                max-height: 100vh !important;
-            }
-
-            #feedbackFrame {
-                width: 100vw !important;
-                height: 100vh !important;
-                max-height: 100vh !important;
-            }
-            `;
-
-            // Llamada a la función para agregar los estilos
-            agregarEstilosCSS(estilosCSS);
 			//Probando con un JSON
 			
 			let data = {
