@@ -606,24 +606,133 @@
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-		<script type="text/javascript">window.QPROSurvey = {};window.QPROSurvey.settings = {inID : "fSsYlZBow", segmentCode : "S1", appURL : "https://admin.questionpro.com"};</script><script src="https://admin.questionpro.com/javascript/min/in.js?version=97.4.3"></script><noscript><a href="https://admin.questionpro.com">https://admin.questionpro.com</a></noscript>
+		<script type="text/javascript">window.QPROSurvey = {};window.QPROSurvey.settings = {inID : "fSsYlZBow", segmentCode : "S1", appURL : "https://admin.questionpro.com"};</script><script src="https://admin.questionpro.com/javascript/min/in.js"></script><noscript><a href="https://admin.questionpro.com">https://admin.questionpro.com</a></noscript>
 		<script>
 
-            var style = document.createElement('style');
-			style.innerHTML = `
-			.survey-light-box {
-			    position: fixed;
-			    top: 0;
-			    left: 0;
-			    right: 0;
-			    bottom: 0;
-			    width: 100vw;
-			    height: 100vh;
-			    z-index: 1000;
-			    /* otros estilos */
-			}`;
-			document.head.appendChild(style);
-		
+            // Función para agregar estilos CSS dinámicamente
+            function agregarEstilosCSS(css) {
+            var estilo = document.createElement('style');
+            estilo.type = 'text/css';
+            estilo.appendChild(document.createTextNode(css));
+            document.head.appendChild(estilo);
+            }
+
+            // Estilos CSS que quieres agregar
+            var estilosCSS = `
+            .sa-wrapper {
+                width: 100vw !important;
+                height: 100vh !important;
+                max-height: 100vh !important;
+            }
+
+            #feedbackFrame {
+                width: 100vw !important;
+                height: 100vh !important;
+                max-height: 100vh !important;
+            }
+            `;
+
+            // Llamada a la función para agregar los estilos
+            agregarEstilosCSS(estilosCSS);
+			//Probando con un JSON
+			
+			let data = {
+			"empleados": [
+				{
+				"nombre": "Juan+Perez",
+				"puesto": "Gerente+de+Ventas"
+				},
+				{
+				"nombre": "Maria+Rodriguez",
+				"puesto": "Ingeniero+de+Software"
+				},
+				{
+				"nombre": "Carlos+Gomez",
+				"puesto": "Disenador+Grafico"
+				},
+				{
+				"nombre": "Laura+Martinez",
+				"puesto": "Contador"
+				},
+				{
+				"nombre": "Javier+Lopez",
+				"puesto": "Especialista+en+Marketing+Digital"
+				},
+				{
+				"nombre": "Ana+Sanchez",
+				"puesto": "Asistente+Administrativo"
+				},
+				{
+				"nombre": "Pedro+Ramirez",
+				"puesto": "Tecnico+de+Soporte+IT"
+				},
+				{
+				"nombre": "Luisa+Torres",
+				"puesto": "Analista+de+Datos"
+				},
+				{
+				"nombre": "Miguel+Vargas",
+				"puesto": "Chef+Ejecutivo"
+				}
+			]
+			};
+
+			function obtenerElementoAleatorio(arr) {
+			let indiceAleatorio = Math.floor(Math.random() * arr.length);
+			return arr[indiceAleatorio];
+			}
+
+			let empleadoAleatorio = obtenerElementoAleatorio(data.empleados);
+			let nombre = empleadoAleatorio.nombre;
+			let puesto = empleadoAleatorio.puesto;
+
+			console.log("Feedback con customs");
+			let addCustoms = '&custom1='+nombre+'&custom2='+puesto; // Cambia esto por las customs
+			const observer = new MutationObserver(function(mutationsList, observer) {
+				for (let mutation of mutationsList) {
+					if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+						mutation.addedNodes.forEach(function(addedNode) {
+							if (addedNode.tagName && addedNode.tagName.toLowerCase() === 'iframe' && addedNode.id === 'feedbackFrame') {
+								const currentSrc = addedNode.src;
+								addedNode.src = currentSrc + 7 + addCustoms;
+								console.log("Anterior: " + currentSrc);
+								console.log("Actual: " + currentSrc + 7 + addCustoms);
+							}
+						});
+					}
+				}
+			});
+			observer.observe(document.body, { childList: true, subtree: true });
+			
+
+			const inputNombreOculto = document.createElement('div');
+            inputNombreOculto.type = 'hidden';
+            inputNombreOculto.id = 'nombre';
+            inputNombreOculto.textContent = nombre;
+			inputNombreOculto.display = 'none';
+
+            const inputPuestoOculto = document.createElement('div');
+            inputPuestoOculto.type = 'hidden';
+            inputPuestoOculto.id = puesto;
+            inputPuestoOculto.textContent = 'CSR';
+			inputPuestoOculto.display = 'none';
+
+            // Obtener el footer por su posición en el DOM
+            const footer = document.getElementsByTagName('body')[0];
+
+            // Agregar los inputs ocultos al footer
+            footer.appendChild(inputNombreOculto);
+            footer.appendChild(inputPuestoOculto);
+
+			document.addEventListener('DOMContentLoaded', function() {
+				setTimeout(function() {
+					var divToClick = document.querySelector('.sa-handle');
+					if (divToClick) {
+						divToClick.click();
+					}
+				}, 1000); 
+				
+			});
 		</script>
     </body>
 </html>
